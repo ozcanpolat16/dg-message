@@ -1,0 +1,17 @@
+{
+  "name": "dogum-gunu",
+  "version": "1.0.0",
+  "description": "Doğum günü sayacı ve mesaj uygulaması",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'Build complete'"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.4.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

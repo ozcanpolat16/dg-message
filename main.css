@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a1a1a;
+    font-family: 'Cormorant Garamond', serif;
+    color: #fff;
+    padding: 15px;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+}
+
+.content {
+    background: #222;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem;
+    border-radius: 8px;
+}
+
+.countdown-value {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #e6c07b;
+}
+
+.countdown-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-top: 0.3rem;
+}
+
+.pre-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e6c07b;
+    margin-bottom: 1.5rem;
+    padding: 0 10px;
+}
+
+.birthday-letter {
+    text-align: left;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 10px;
+}
+
+.birthday-letter p {
+    margin-bottom: 1.2rem;
+}
+
+.signature {
+    text-align: right;
+    color: #e6c07b;
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+/* Tablet için ayarlar */
+@media (min-width: 768px) {
+    .content {
+        padding: 3rem;
+    }
+    
+    .countdown {
+        gap: 1.5rem;
+    }
+    
+    .countdown-item {
+        padding: 1rem;
+    }
+    
+    .countdown-value {
+        font-size: 2.2rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+    
+    .pre-message {
+        font-size: 1.3rem;
+    }
+    
+    .birthday-letter {
+        font-size: 1.2rem;
+    }
+}
+
+/* Büyük ekranlar için ayarlar */
+@media (min-width: 1024px) {
+    .countdown-value {
+        font-size: 2.5rem;
+    }
+    
+    .countdown-item {
+        padding: 1.2rem;
+    }
+    
+    .pre-message {
+        font-size: 1.4rem;
+    }
+    
+    .birthday-letter {
+        font-size: 1.3rem;
+        line-height: 1.8;
+    }
+}
+
+/* Yüksek DPI ekranlar için ek optimizasyon */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .content {
+        border-width: 0.5px;
+    }
+}
+
+/* Dikey mobil ekranlar için ek ayarlar */
+@media (max-width: 380px) {
+    .countdown {
+        gap: 8px;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.6rem;
+    }
+    
+    .content {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Yatay mobil ekranlar için ayarlar */
+@media (max-height: 500px) {
+    .content {
+        padding: 1rem;
+    }
+    
+    .countdown {
+        margin-bottom: 1rem;
+    }
+    
+    .birthday-letter p {
+        margin-bottom: 0.8rem;
+    }
+}
