@@ -1,5 +1,6 @@
 const messageElement = document.getElementById('message');
 const countdownElement = document.getElementById('countdown');
+const musicContainer = document.getElementById('music-container');
 let confettiShown = false;
 
 function formatCountdown(days, hours, minutes, seconds) {
@@ -30,6 +31,7 @@ function updateCountdown() {
     if (distance < 0) {
         countdownElement.style.display = 'none';
         messageElement.innerHTML = birthdayMessage;
+        musicContainer.style.display = 'block';
         
         if (!confettiShown) {
             startConfetti();

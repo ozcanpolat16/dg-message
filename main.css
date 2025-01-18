@@ -9,24 +9,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #1a1a1a;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     font-family: 'Cormorant Garamond', serif;
     color: #fff;
     padding: 15px;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 800px;
     width: 100%;
-    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .content {
-    background: #222;
+    background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    text-align: center;
 }
 
 .countdown {
@@ -38,50 +41,80 @@ body {
 }
 
 .countdown-item {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     padding: 0.8rem;
-    border-radius: 8px;
+    border-radius: 12px;
+    text-align: center;
 }
 
 .countdown-value {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 300;
     color: #e6c07b;
+    display: block;
 }
 
 .countdown-label {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.7);
     margin-top: 0.3rem;
+}
+
+.message {
+    margin: 1.5rem 0;
 }
 
 .pre-message {
     font-size: 1.1rem;
-    line-height: 1.6;
     color: #e6c07b;
-    margin-bottom: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
     padding: 0 10px;
 }
 
 .birthday-letter {
-    text-align: left;
     color: #fff;
     font-size: 1rem;
     line-height: 1.6;
-    padding: 0 10px;
+    text-align: left;
+    padding: 0 5px;
 }
 
 .birthday-letter p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .signature {
     text-align: right;
     color: #e6c07b;
     font-style: italic;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+}
+
+.music-container {
+    margin-top: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+iframe {
+    width: 100%;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Tablet için ayarlar */
@@ -91,15 +124,11 @@ body {
     }
     
     .countdown {
-        gap: 1.5rem;
-    }
-    
-    .countdown-item {
-        padding: 1rem;
+        gap: 15px;
     }
     
     .countdown-value {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     
     .countdown-label {
@@ -112,52 +141,42 @@ body {
     
     .birthday-letter {
         font-size: 1.2rem;
+        padding: 0 10px;
+    }
+    
+    .birthday-letter p {
+        margin-bottom: 1.5rem;
     }
 }
 
-/* Büyük ekranlar için ayarlar */
-@media (min-width: 1024px) {
-    .countdown-value {
-        font-size: 2.5rem;
-    }
-    
-    .countdown-item {
-        padding: 1.2rem;
-    }
-    
-    .pre-message {
-        font-size: 1.4rem;
-    }
-    
-    .birthday-letter {
-        font-size: 1.3rem;
-        line-height: 1.8;
-    }
-}
-
-/* Yüksek DPI ekranlar için ek optimizasyon */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+/* Küçük mobil cihazlar için ayarlar */
+@media (max-width: 375px) {
     .content {
-        border-width: 0.5px;
+        padding: 1.5rem 1rem;
     }
-}
-
-/* Dikey mobil ekranlar için ek ayarlar */
-@media (max-width: 380px) {
+    
     .countdown {
         gap: 8px;
     }
     
+    .countdown-item {
+        padding: 0.6rem;
+    }
+    
     .countdown-value {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     
     .countdown-label {
         font-size: 0.6rem;
     }
     
-    .content {
-        padding: 1.5rem 1rem;
+    .pre-message {
+        font-size: 1rem;
+    }
+    
+    .birthday-letter {
+        font-size: 0.95rem;
     }
 }
 
@@ -173,5 +192,27 @@ body {
     
     .birthday-letter p {
         margin-bottom: 0.8rem;
+    }
+}
+
+/* Yüksek DPI ekranlar için ek optimizasyon */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .content {
+        border-width: 0.5px;
+    }
+}
+
+/* Karanlık mod optimizasyonu */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+    }
+}
+
+/* Güvenli alan ayarları (iPhone X ve sonrası) */
+@supports (padding: max(0px)) {
+    .container {
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
     }
 }
